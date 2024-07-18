@@ -5,64 +5,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Pratiksha Web Server</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-
-        .container {
+            margin: 40px;
             text-align: center;
         }
-
-        .header {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .content {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-        }
-
-        .animation {
-            width: 100px;
-            height: 100px;
-            background-color: #3498db;
-            position: relative;
-            animation: animate 2s infinite ease-in-out;
-        }
-
-        @keyframes animate {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0); }
+        h1 {
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">Welcome to My Website</div>
-        <div class="content">
-            This is the index page of my website.
-        </div>
-        <div class="animation"></div>
-    </div>
+    <h1>Welcome to Pratiksha Web Server!</h1>
+    <p>This is a customized web server deployed using Docker.</p>
 </body>
 </html>
 
+
 #save index.html file
 #run below commands
+docker build -t pratiksha-webserver .
+docker run -d -p 8080:80 --name pratiksha-webserver pratiksha-webserver
 
-docker image ls
-docker image build . -t webserver:latest
-docker container ls
-#check on chrome website sucessfully working
-docker conatiner run -d --name my_image -p 80:80 webserver:latest
+#Open your web browser and go to http://localhost:8080. 
+#You should see the web page served by Nginx displaying "Welcome to Pratiksha Web Server!".
+
